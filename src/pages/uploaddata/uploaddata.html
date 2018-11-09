@@ -1,0 +1,31 @@
+<ion-header >
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Download</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg-dark">
+<div class="abs-tl full blur-img op1 img-cover" style="background:url(assets/img/bg-list.jpg);"></div>
+
+<div class="relative center p30">
+  <ion-slides>
+      <ion-slide class="swiper-no-swiping p20">
+          <!-- <ion-list>
+            <ion-item *ngFor="let cri of t_crigemba ;let i = index">
+                  <ion-item>{{cri.site}}</ion-item>
+                  <ion-item>{{cri.location}}</ion-item>
+                  <ion-item>{{cri.description}}</ion-item>
+                  <ion-item>{{cri.image1base64}}</ion-item>
+            </ion-item>
+          </ion-list> -->
+          <div class="p40">
+              <button ion-button block class="bg-white round-big submit-button font-14 text-dark" (click)="downloadCSV()">Share</button>
+        </div>
+        </ion-slide>
+  </ion-slides>
+</div>
+</ion-content>

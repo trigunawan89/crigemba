@@ -1,0 +1,25 @@
+<ion-menu [content]="content" type="overlay">
+
+    <ion-content class="bg-gray shadow-big">
+  
+      <div class="ptb30 center relative z-sshi">
+        <img src="assets/img/logo.png" height="50" no-repeat center center>
+        <div class="text-white font-20">Gemba App </div> 
+      </div>
+     
+        <div menuClose *ngFor="let p of pages" (click)="openPage(p)">
+          <div class="menu-item">{{p.title}}</div>
+        </div>
+  
+    </ion-content>
+  
+    <div class="abs-bl text-white p10 font-7">Gemba App v 1.3</div>
+    <div class="abs-br text-white p10 font-7">by cri_app</div>
+  
+    <div class="abs-tl full op1 img-cover" style="background:url(assets/img/bg-menu.jpg) no-repeat center center"></div>
+  
+  </ion-menu>
+  
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  

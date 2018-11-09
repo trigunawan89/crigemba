@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Summary</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+<ion-content class="bg-dark">
+      <div class="abs-tl full blur-img op1 img-cover" style="background:url(assets/img/bg-list.jpg);"></div>
+    
+      <div class="relative center p30">  
+      <ion-slides>
+
+        <ion-slide class="swiper-no-swiping">
+            <h3 class="ptb50 text-white" >Choose filter :</h3>
+    
+            <ion-item class="transparent-input">
+              <ion-label class="">Sites</ion-label>
+              <ion-select [(ngModel)]="site" >
+                <ion-option class="" *ngFor="let site of siteoption" [value]="site.site">{{site.site}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item class="transparent-input">
+                <ion-label class="">Location</ion-label>
+                <ion-select [(ngModel)]="location" >
+                  <ion-option class="" *ngFor="let location of locationoption" [value]="location.location">{{location.location}}</ion-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item class="transparent-input">
+                  <ion-label class="">Date</ion-label>
+                  <ion-select [(ngModel)]="date">
+                    <ion-option class="" *ngFor="let date of dateoption" [value]="date.date">{{date.date}}</ion-option>
+                  </ion-select>
+            </ion-item>
+
+            <div class="p40">
+              <!-- <button  ion-button block class="bg-white round-big submit-button" (click)="getCurrentData()">Submit</button> -->
+              <button  ion-button block *ngIf="site && location && date" class="bg-white round-big submit-button" (click)="getCurrentData()">Submit</button>
+
+            </div>
+        </ion-slide>
+
+        <ion-slide class="swiper-no-swiping"> 
+
+            <ion-grid class = "bg-white">
+                <ion-row justify-content-start>
+                  <ion-col col-6 style="text-align: left; color: black">Site</ion-col>
+                  <ion-col col-6>{{site}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6 style="text-align: left; color: black">Location</ion-col>
+                    <ion-col col-6>{{location}}</ion-col>
+                  </ion-row>
+                <ion-row>
+                  <ion-col col-6 style="text-align: left; color: black">Date</ion-col>
+                  <ion-col col-6>{{date}}</ion-col>
+                </ion-row>
+              </ion-grid>
+            
+              <ion-grid class = "bg-white">
+                  <ion-row justify-content-start>
+                    <ion-col col-6 ><img src="assets/img/img1.png" style="width:110px;height:50px;"></ion-col>
+                    <ion-col col-6>{{green_score}}</ion-col>
+                  </ion-row>
+                  <ion-row justify-content-start>
+                      <ion-col col-6 ><img src="assets/img/img2.png" style="width:110px;height:50px;"></ion-col>
+                      <ion-col col-6>{{yellow_score}}</ion-col>
+                  </ion-row>
+                  <ion-row justify-content-start>
+                      <ion-col col-6 ><img src="assets/img/img3.png" style="width:110px;height:50px;"></ion-col>
+                      <ion-col col-6>{{orange_score}}</ion-col>
+                  </ion-row>
+                  <ion-row justify-content-start>
+                      <ion-col col-6 ><img src="assets/img/img4.png" style="width:110px;height:50px;"></ion-col>
+                      <ion-col col-6>{{red_score}}</ion-col>
+                  </ion-row>
+                  <ion-row justify-content-start>
+                      <ion-col col-6 ><img src="assets/img/img5.png" style="width:110px;height:50px;"></ion-col>
+                      <ion-col col-6>{{purple_score}}</ion-col>
+                  </ion-row>
+                  <ion-row justify-content-start>
+                      <ion-col col-6 ><img src="assets/img/img6.png" style="width:110px;height:50px;"></ion-col>
+                      <ion-col col-6>{{grey_score}}</ion-col>
+                  </ion-row>
+              </ion-grid>
+
+            
+            </ion-slide>
+      </ion-slides>    
+</div>
+</ion-content>
+
+
+
+  

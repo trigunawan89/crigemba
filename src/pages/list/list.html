@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Gallery</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content>
+
+    
+     <h1 class="abs-bl full-width text-white center p50" *ngIf="!t_crigemba.length">There are no data here</h1> 
+
+    <ion-list no-lineslist-inset-ios-border-radius>    
+    <ion-item-sliding *ngFor="let cri of t_crigemba ;let i = index">
+      <ion-item class="font-24 text-white bg-light-dark"><i class="icofont icofont-building-alt"></i>Site : {{cri.site}}</ion-item>
+      <ion-item class="font-18 text-dark"><i class="icofont icofont-location-arrow"></i>Location :{{cri.location}}</ion-item>
+      <ion-item  *ngIf ="cri.image1 != defaultPath"><img src="{{cri.image1}}" style="width: 100%"></ion-item>
+      <ion-item  *ngIf ="cri.image2 != defaultPath"><img src="{{cri.image2}}" style="width: 100%"></ion-item>
+      <ion-item  *ngIf ="cri.image3 != defaultPath"><img src="{{cri.image3}}" style="width: 100%"></ion-item>
+      <ion-item  *ngIf ="cri.image4 != defaultPath"><img src="{{cri.image4}}" style="width: 100%"></ion-item>
+      <ion-item  *ngIf ="cri.image5 != defaultPath"><img src="{{cri.image5}}" style="width: 100%"></ion-item>
+      <ion-item ><img src="{{pathForScore(cri.score)}}" style="width:150px;height:50;"></ion-item>
+      <ion-item class="font-18 text-white" ><i class="icofont icofont-notepad"></i>description: {{cri.description}}</ion-item>
+      <ion-item class="font-18 text-white" ><i class="icofont icofont-clock-time"></i>date: {{cri.date}}</ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="deleteData(cri.site)">
+          Delete
+        </button>
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content> 
+<!-- 
+<ion-content class="bg-dark">
+    <div class="abs-tl full blur-img op1 img-cover" style="background:url(assets/img/bg-list.jpg);"></div>
+  
+    <h1 *ngIf="t_crigemba.length == 0" class="p50 center text-white"><i class="icofont icofont-emo-sad font-48 ptb50 block"></i> There is no data</h1>
+  
+    <div class="pt40"></div>
+  
+    <div *ngFor="let p of t_crigemba ">
+      <div class="list-product relative"> 
+      <div *ngIf="p.product.status == 1" class="list-product relative">
+        <div class="abs-bl ov-img-b full-width full-height block"></div>
+          <div class="img-cover" [ngStyle]="{'background': 'url(' + p.image1 + ') no-repeat center center'}"></div>
+          <div class="abs-bl p10 mb5">
+            <p class="font-12 m0 cap text-white"><i class="icofont icofont-home text-white"></i>Site: {{p.site}}</p>
+            <p class="font-12 m0 cap text-white"><i class="icofont icofont-navigate text-white"></i>Location: {{p.location}}</p>
+            <img *ngIf="p.score == 1" class="round-medium" src="assets/img/img1.png" alt="1" style="width:90px;height:30px;">
+            <img *ngIf="p.score == 2" class="round-medium" src="assets/img/img2.png" alt="2" style="width:90px;height:30px;">
+            <img *ngIf="p.score == 3" class="round-medium" src="assets/img/img3.png" alt="3" style="width:90px;height:30px;">
+            <img *ngIf="p.score == 4" class="round-medium" src="assets/img/img4.png" alt="4" style="width:90px;height:30px;">
+            <img *ngIf="p.score == 5" class="round-medium" src="assets/img/img5.png" alt="5" style="width:90px;height:30px;">
+            <img *ngIf="p.score == 6" class="round-medium" src="assets/img/img6.png" alt="6" style="width:90px;height:30px;">
+            <p class="font-12 m0 text-white"><i class="icofont icofont-clock-time text-white"></i> {{p.date}}</p>
+          </div>
+          <div class="abs-tr font-14 text-white m10">
+           <ion-label class="text-white m0 fw700 plr5">Location: {{p.location}}</ion-label> 
+            <ion-label class="text-white m0 fw700 plr5">Description: {{p.description}}</ion-label> 
+            <img *ngIf="p.score == 1" class="round-medium" src="assets/img/img1.png" alt="1" style="width:90px;height:30px;">
+            <img *ngIf="p.score == 2" class="round-medium" src="assets/img/img2.png" alt="2" style="width:90px;height:30px;">
+            <img *ngIf="p.score == 3" class="round-medium" src="assets/img/img3.png" alt="3" style="width:90px;height:30px;">
+            <img *ngIf="p.score == 4" class="round-medium" src="assets/img/img4.png" alt="4" style="width:90px;height:30px;">
+            <img *ngIf="p.score == 5" class="round-medium" src="assets/img/img5.png" alt="5" style="width:90px;height:30px;">
+            <img *ngIf="p.score == 6" class="round-medium" src="assets/img/img6.png" alt="6" style="width:90px;height:30px;">
+    
+          </div>
+      </div>
+    </div>
+  
+  </ion-content> -->

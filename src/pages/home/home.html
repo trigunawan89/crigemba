@@ -1,0 +1,168 @@
+<ion-header >
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-dark">
+<div class="abs-tl full blur-img op1 img-cover" style="background:url(assets/img/bg-list.jpg);"></div>
+
+<div class="relative center p30">
+  <ion-slides>
+      <ion-slide class="swiper-no-swiping p20">
+          <h3 class="text-white">Where are you?</h3>
+          <ion-item class="transparent-input mtb20">
+            <ion-input class="" type="text" placeholder="Site" [(ngModel)]="site"></ion-input>
+          </ion-item>
+          <div class="p40">
+            <ion-row>
+              <ion-col col-12>
+                <button *ngIf="site" ion-button block class="bg-white round-big submit-button" (click)="setStep(1)">Next</button>
+              </ion-col>
+          </ion-row>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <h3  class="text-white">Site Detail:</h3>
+          <ion-item class="transparent-input mtb20">
+              <ion-input class="" type="text" placeholder="Location" [(ngModel)]="location"></ion-input>
+          </ion-item>
+          <ion-item class="transparent-input-description mtb20">
+            <ion-textarea class="" fz-elastic placeholder="Description" [(ngModel)]="description"></ion-textarea>
+          </ion-item>
+          <div >
+              <ion-row>
+                  <ion-col col-6>
+                      <button *ngIf="image != undefined" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(0)">Close</button>
+                    </ion-col>
+                  <ion-col col-6>
+                    <button  *ngIf="location" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(2)">Take Picture</button>
+                  </ion-col>
+              </ion-row>
+          </div>
+      </ion-slide>
+      <ion-slide class="swiper-no-swiping p20">
+        <div class="form-tr-input-d round-small ptb20" *ngIf="image1 === undefined">
+            <i class="icofont icofont-camera text-white font-48" (click)='takePicture(1)'></i>
+            <p class="m0 p0 text-white">Camera</p>
+        </div>
+        <img src="{{pathForImage(image1)}}" style="width: 100%" *ngIf="image1">
+        <div >
+            <ion-row>
+                <ion-col col-6>
+                  <button *ngIf="image1 != undefined" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(3)">New Picture</button>
+                </ion-col>
+                <ion-col col-6>
+                    <button *ngIf="image1 != undefined"  ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(7)">Done</button>
+                  </ion-col>
+            </ion-row>
+        </div>
+        <h3 class="text-white">Picture 1 of 5</h3>
+      </ion-slide>
+      <ion-slide class="swiper-no-swiping p20">
+          <div class="form-tr-input-d round-small ptb20" *ngIf="image2 === undefined">
+              <i class="icofont icofont-camera text-white font-48" (click)='takePicture(2)'></i>
+              <p class="m0 p0 text-white">Camera</p>
+          </div>
+          <img src="{{pathForImage(image2)}}" style="width: 100%" *ngIf="image2">
+          <div >
+              <ion-row>
+                  <ion-col col-6>
+                    <button  *ngIf="image2 != undefined" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(4)">New Picture</button>
+                  </ion-col>
+                  <ion-col col-6>
+                      <button *ngIf="image2 != undefined" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(7)">Done</button>
+                    </ion-col>
+              </ion-row>
+          </div>
+          <h3  class="text-white">Picture 2 of 5</h3>
+        </ion-slide>
+        <ion-slide class="swiper-no-swiping p20">
+            <div class="form-tr-input-d round-small ptb20" *ngIf="image3 === undefined">
+                <i class="icofont icofont-camera text-white font-48" (click)='takePicture(3)'></i>
+                <p class="m0 p0 text-white">Camera</p>
+            </div>
+            <img src="{{pathForImage(image3)}}" style="width: 100%" *ngIf="image3">
+            <div >
+              <ion-row>
+                <ion-col col-6>
+                  <button  *ngIf="image3 != undefined" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(5)">New Picture</button>
+                </ion-col>
+                <ion-col col-6>
+                    <button *ngIf="image3 != undefined" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(7)">Done</button>
+                  </ion-col>
+            </ion-row>
+            </div>
+            <h3  class="text-white">Picture 3 of 5</h3>
+          </ion-slide>
+          <ion-slide class="swiper-no-swiping p20">
+            <div class="form-tr-input-d round-small ptb20" *ngIf="image4 === undefined">
+                <i class="icofont icofont-camera text-white font-48" (click)='takePicture(4)'></i>
+                <p class="m0 p0 text-white">Camera</p>
+            </div>
+            <img src="{{pathForImage(image4)}}" style="width: 100%" *ngIf="image4">
+            <div >
+              <ion-row>
+                <ion-col col-6>
+                  <button  *ngIf="image4 != undefined" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(6)">New Picture</button>
+                </ion-col>
+                <ion-col col-6>
+                    <button *ngIf="image4 != undefined" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(7)">Done</button>
+                  </ion-col>
+            </ion-row>
+            </div>
+            <h3 class="text-white">Picture 4 of 5</h3>
+          </ion-slide>
+          <ion-slide class="swiper-no-swiping p20">
+            <div class="form-tr-input-d round-small ptb20" *ngIf="image5 === undefined">
+                <i class="icofont icofont-camera text-white font-48" (click)='takePicture(5)'></i>
+                <p class="m0 p0 text-white">Camera</p>
+            </div>
+            <img src="{{pathForImage(image5)}}" style="width: 100%" *ngIf="image5">
+            <div >
+              <ion-row>
+                <ion-col col-12>
+                    <button *ngIf="image5 != undefined" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(7)">Done</button>
+                  </ion-col>
+            </ion-row>
+            </div>
+            <h3 class="text-white">Picture 5 of 5</h3>
+          </ion-slide>
+        <ion-slide class="swiper-no-swiping p20">
+          <ion-label class="font-35 text-white">Category:</ion-label>
+          <ion-list radio-group [(ngModel)]="score">
+              <ion-item >
+                <ion-label class="font-35" style="background:url(assets/img/img1.png);background-repeat:no-repeat;background-size:100px;" no-repeat>'</ion-label>
+                <ion-radio value="1" checked></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label class="font-35" style="background:url(assets/img/img2.png);background-repeat:no-repeat;background-size:100px;" no-repeat>1</ion-label>
+                <ion-radio value="2" checked></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label class="font-35" style="background:url(assets/img/img3.png);background-repeat:no-repeat;background-size:100px;" no-repeat>1</ion-label>
+                <ion-radio value="3" checked></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label class="font-35" style="background:url(assets/img/img4.png);background-repeat:no-repeat;background-size:100px;" no-repeat>1</ion-label>
+                <ion-radio value="4" checked></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label class="font-35" style="background:url(assets/img/img5.png);background-repeat:no-repeat;background-size:100px;" no-repeat>1</ion-label>
+                <ion-radio value="5" checked></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label class="font-35" style="background:url(assets/img/img6.png);background-repeat:no-repeat;background-size:100px;" no-repeat>1</ion-label>
+                <ion-radio value="6" checked></ion-radio>
+              </ion-item>
+            </ion-list>
+          <div >
+              <button  *ngIf="score" ion-button block class="bg-white round-big submit-button font-12 text-black" (click)="setStep(8)">Save</button>
+          </div>
+      </ion-slide>      
+  </ion-slides>
+</div>
+</ion-content>

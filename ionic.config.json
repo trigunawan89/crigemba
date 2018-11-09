@@ -1,0 +1,7 @@
+{
+  "name": "crigemba",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
